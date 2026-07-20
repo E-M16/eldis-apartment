@@ -1,89 +1,117 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eldi's Apartment - Golem, Durres | Beachfront Rental</title>
+  <title>Eldi's Apartment | Golem Beach, Durres</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    .hero { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1920x1080?text=Eldi%27s+Apartment+Golem'); background-size: cover; background-position: center; }
+    .hero { background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://via.placeholder.com/1920x1080?text=Eldi%27s+Apartment+Golem+Beach'); background-size: cover; background-position: center; }
+    .card-hover:hover { transform: translateY(-10px); transition: all 0.4s ease; }
   </style>
 </head>
-<body class="bg-slate-50">
+<body class="bg-slate-50 font-sans">
 
   <!-- Hero -->
   <section class="hero h-screen flex items-center text-white">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <h1 class="text-5xl md:text-6xl font-bold mb-4">Eldi's Apartment</h1>
-      <p class="text-2xl md:text-3xl mb-8">Golem Beach • Durres • Albania</p>
-      <a href="https://www.booking.com/hotel/al/eldi-39-s-apartment-golem-durres.en-gb.html" target="_blank"
-         class="inline-block bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-10 py-4 rounded-xl text-lg transition">
-        Book Now on Booking.com
-      </a>
+      <h1 class="text-6xl md:text-7xl font-bold mb-4">Eldi's Apartment</h1>
+      <p class="text-3xl md:text-4xl mb-6">Golem Beach • Durres • Albania</p>
+      <p class="text-xl max-w-2xl mx-auto mb-10">Modern sea-view apartment just 50 meters from the beautiful sandy beach</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://www.booking.com/hotel/al/eldi-39-s-apartment-golem-durres.en-gb.html" target="_blank"
+           class="bg-white text-black font-semibold px-10 py-4 rounded-2xl text-lg hover:bg-cyan-400 transition">
+          Book on Booking.com
+        </a>
+        <a href="tel:+355696045101" 
+           class="border-2 border-white font-semibold px-10 py-4 rounded-2xl text-lg hover:bg-white hover:text-black transition">
+          Call +355 69 604 5101
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Description -->
-  <section class="py-16">
+  <!-- About -->
+  <section class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-4xl font-bold mb-6">Your Home by the Sea</h2>
+          <h2 class="text-4xl font-bold mb-6">Your Perfect Beach Getaway</h2>
           <p class="text-lg text-gray-600 leading-relaxed">
-            Modern and comfortable apartment located just steps from the beautiful sandy beach of Golem, Durres. 
-            Perfect for families, couples, or groups looking for a relaxing vacation by the Adriatic Sea.
+            Welcome to Eldi's Apartment in Golem, Durres. A comfortable, newly renovated apartment located just steps away from the crystal clear waters of the Adriatic Sea.
           </p>
-          <ul class="mt-8 space-y-4 text-lg">
-            <li><i class="fas fa-check text-green-500 mr-3"></i>Direct beach access</li>
-            <li><i class="fas fa-check text-green-500 mr-3"></i>Air conditioning & WiFi</li>
-            <li><i class="fas fa-check text-green-500 mr-3"></i>Fully equipped kitchen</li>
-            <li><i class="fas fa-check text-green-500 mr-3"></i>Private parking</li>
-          </ul>
+          <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+            Ideal for families, couples, and friends who want to enjoy the beach, good food, and Albanian hospitality.
+          </p>
         </div>
-        <div class="bg-white p-8 rounded-3xl shadow-lg">
-          <h3 class="font-semibold text-xl mb-6">Quick Facts</h3>
-          <div class="grid grid-cols-2 gap-6 text-center">
-            <div><strong>Guests:</strong> up to 6</div>
-            <div><strong>Bedrooms:</strong> 2</div>
-            <div><strong>Bathrooms:</strong> 1</div>
-            <div><strong>Distance to beach:</strong> 50m</div>
-          </div>
+        <div class="text-6xl text-center text-cyan-600">
+          <i class="fas fa-umbrella-beach"></i>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Amenities -->
-  <section class="py-16 bg-slate-900 text-white">
+  <section class="py-20 bg-slate-900 text-white">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">What We Offer</h2>
+      <h2 class="text-4xl font-bold text-center mb-12">Amenities</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div><i class="fas fa-wifi text-4xl mb-4 text-cyan-400"></i><p>High-Speed WiFi</p></div>
-        <div><i class="fas fa-air-freshener text-4xl mb-4 text-cyan-400"></i><p>Air Conditioning</p></div>
-        <div><i class="fas fa-car text-4xl mb-4 text-cyan-400"></i><p>Free Parking</p></div>
-        <div><i class="fas fa-utensils text-4xl mb-4 text-cyan-400"></i><p>Full Kitchen</p></div>
+        <div class="card-hover"><i class="fas fa-wifi text-5xl mb-4 text-cyan-400"></i><p>Free WiFi</p></div>
+        <div class="card-hover"><i class="fas fa-air-freshener text-5xl mb-4 text-cyan-400"></i><p>Air Conditioning</p></div>
+        <div class="card-hover"><i class="fas fa-car text-5xl mb-4 text-cyan-400"></i><p>Free Parking</p></div>
+        <div class="card-hover"><i class="fas fa-kitchen-set text-5xl mb-4 text-cyan-400"></i><p>Full Kitchen</p></div>
+        <div class="card-hover"><i class="fas fa-tv text-5xl mb-4 text-cyan-400"></i><p>Smart TV</p></div>
+        <div class="card-hover"><i class="fas fa-shower text-5xl mb-4 text-cyan-400"></i><p>Private Bathroom</p></div>
+        <div class="card-hover"><i class="fas fa-walking text-5xl mb-4 text-cyan-400"></i><p>50m from Beach</p></div>
+        <div class="card-hover"><i class="fas fa-users text-5xl mb-4 text-cyan-400"></i><p>Up to 6 Guests</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Booking & Contact -->
-  <section class="py-20">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8">Ready for Your Albanian Adventure?</h2>
-      <a href="https://www.booking.com/hotel/al/eldi-39-s-apartment-golem-durres.en-gb.html" 
-         target="_blank"
-         class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-12 py-5 rounded-2xl text-xl mb-8">
-        Check Availability & Book on Booking.com
-      </a>
-      <p class="text-gray-600">or contact me directly for special offers and long-term rentals</p>
+  <!-- Reviews -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Guest Reviews</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-100 p-8 rounded-3xl">
+          <p class="italic">"Beautiful apartment, very clean and close to the beach. The host is very responsive!"</p>
+          <p class="mt-6 font-semibold">— Maria, Germany</p>
+        </div>
+        <div class="bg-slate-100 p-8 rounded-3xl">
+          <p class="italic">"Perfect location. We enjoyed every moment. Highly recommended!"</p>
+          <p class="mt-6 font-semibold">— Family from Italy</p>
+        </div>
+        <div class="bg-slate-100 p-8 rounded-3xl">
+          <p class="italic">"Great value for money. The apartment has everything we needed."</p>
+          <p class="mt-6 font-semibold">— John, UK</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct Contact -->
+  <section class="py-20 bg-cyan-600 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-6">Contact Us Directly</h2>
+      <p class="text-xl mb-10">For special offers, long-term stays, or any questions</p>
+      
+      <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl">
+        <p class="text-3xl font-semibold mb-6">+355 69 604 5101</p>
+        <p class="mb-8">WhatsApp &amp; Viber available</p>
+        
+        <a href="tel:+355696045101" 
+           class="block bg-white text-cyan-600 font-bold py-4 rounded-2xl text-xl hover:bg-yellow-300 transition">
+          Call or WhatsApp Now
+        </a>
+      </div>
     </div>
   </section>
 
   <footer class="bg-slate-900 text-white py-12 text-center">
-    <p>Eldi's Apartment • Golem, Durres, Albania</p>
-    <p class="mt-2">📧 your.email@example.com | 📞 +355 XX XXX XXX</p>
+    <p class="text-xl">Eldi's Apartment • Golem, Durres, Albania</p>
+    <p class="mt-3">📍 50m from the beach | 📞 +355 69 604 5101</p>
   </footer>
 </body>
 </html>
