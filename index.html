@@ -6,25 +6,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Eldi's Apartment | Golem Beach Durrës Albania</title>
+<title>Eldi's Apartment | Golem Beach, Durrës Albania</title>
 
-<meta name="description" content="Eldi's Apartment - modern beach apartment in Golem Durrës Albania. 50 meters from the sea. Direct booking available.">
+<meta name="description" content="Eldi's Apartment in Golem, Durrës Albania. Comfortable apartment 50 meters from the beach with free parking, WiFi and excellent guest reviews.">
 
-<meta name="keywords" content="Golem apartment, Durres apartment, Albania beach apartment, holiday apartment Golem">
+<meta name="keywords" content="Golem apartment, Durres accommodation, Albania beach apartment, Golem beach holiday">
 
 <meta name="geo.region" content="AL-DR">
-<meta name="geo.placename" content="Golem, Durres, Albania">
+<meta name="geo.placename" content="Golem, Durrës, Albania">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 
 <script src="https://cdn.tailwindcss.com"></script>
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 
 
 <style>
@@ -32,6 +35,7 @@
 body {
 font-family:'Inter',sans-serif;
 }
+
 
 h1,h2,h3 {
 font-family:'Playfair Display',serif;
@@ -45,8 +49,10 @@ linear-gradient(
 rgba(0,0,0,.45),
 rgba(0,0,0,.55)
 ),
-url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000")
-center/cover;
+url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000");
+
+background-size:cover;
+background-position:center;
 
 }
 
@@ -54,16 +60,17 @@ center/cover;
 .glass {
 
 background:rgba(255,255,255,.15);
-backdrop-filter:blur(18px);
+backdrop-filter:blur(15px);
 
 }
 
 
 .card {
 
-transition:.35s;
+transition:.3s;
 
 }
+
 
 .card:hover {
 
@@ -72,27 +79,14 @@ transform:translateY(-8px);
 }
 
 
-.gallery img {
-
-transition:.4s;
-
-}
-
-.gallery img:hover {
-
-transform:scale(1.05);
-
-}
-
-
-.review-box::-webkit-scrollbar {
+.review-scroll::-webkit-scrollbar {
 
 width:8px;
 
 }
 
 
-.review-box::-webkit-scrollbar-thumb {
+.review-scroll::-webkit-scrollbar-thumb {
 
 background:#0f766e;
 border-radius:20px;
@@ -101,6 +95,7 @@ border-radius:20px;
 
 
 </style>
+
 
 </head>
 
@@ -112,12 +107,15 @@ border-radius:20px;
 
 
 
+
+
 <!-- NAVIGATION -->
+
 
 <nav class="fixed top-0 w-full z-50">
 
 
-<div class="max-w-7xl mx-auto px-5 py-5">
+<div class="max-w-7xl mx-auto px-6 py-5">
 
 
 <div class="glass rounded-3xl px-8 py-4 flex items-center justify-between text-white shadow-xl">
@@ -131,29 +129,15 @@ Eldi's Apartment
 
 
 
-<div class="hidden md:flex gap-8">
+<div class="hidden md:flex gap-8 font-medium">
 
+<a href="#home">Home</a>
 
-<a href="#home">
-Home
-</a>
+<a href="#gallery">Gallery</a>
 
-<a href="#booking">
-Book
-</a>
+<a href="#reviews">Reviews</a>
 
-<a href="#gallery">
-Gallery
-</a>
-
-<a href="#reviews">
-Reviews
-</a>
-
-<a href="#contact">
-Contact
-</a>
-
+<a href="#contact">Contact</a>
 
 </div>
 
@@ -163,10 +147,9 @@ Contact
 
 class="bg-white text-teal-700 px-6 py-3 rounded-full font-bold">
 
-Check Availability
+Ask Availability
 
 </a>
-
 
 
 </div>
@@ -176,6 +159,8 @@ Check Availability
 
 
 </nav>
+
+
 
 
 
@@ -193,11 +178,12 @@ class="hero min-h-screen flex items-center text-white">
 <div class="max-w-6xl mx-auto px-6 text-center">
 
 
-<p class="uppercase tracking-[5px] text-cyan-300 mb-5">
+<p class="uppercase tracking-[4px] text-cyan-300 mb-5">
 
 Golem Beach • Durrës • Albania
 
 </p>
+
 
 
 
@@ -211,17 +197,18 @@ Eldi's Apartment
 
 <h2 class="text-3xl md:text-5xl mb-8">
 
-Your Home Near The Sea
+Comfortable Stay Near The Sea
 
 </h2>
 
 
 
+
 <p class="max-w-3xl mx-auto text-xl mb-10">
 
-Comfortable one-bedroom apartment only
-<strong>50 meters from the beach</strong>,
-with private parking, air conditioning and everything needed for a relaxing holiday.
+A clean and comfortable one-bedroom apartment,
+only <strong>50 meters from the beach</strong>.
+Perfect for couples and families looking for a relaxing stay in Golem.
 
 </p>
 
@@ -231,24 +218,25 @@ with private parking, air conditioning and everything needed for a relaxing holi
 <div class="flex flex-wrap justify-center gap-5">
 
 
-<a href="#booking"
+<a href="https://www.booking.com/hotel/al/eldi-39-s-apartment-golem-durres.html"
+
+target="_blank"
 
 class="bg-white text-teal-800 px-10 py-5 rounded-full font-bold text-lg">
 
-Book Direct
+Check Availability
 
 </a>
 
 
 
-<a href="https://wa.me/355696045101"
+<a href="#booking"
 
 class="border-2 border-white px-10 py-5 rounded-full font-bold text-lg">
 
-WhatsApp
+Ask For Direct Price
 
 </a>
-
 
 
 </div>
@@ -256,7 +244,10 @@ WhatsApp
 
 
 
-<div class="mt-12 glass inline-block rounded-3xl px-10 py-6">
+
+
+
+<div class="mt-12 glass rounded-3xl inline-block px-10 py-6">
 
 
 <div class="text-yellow-300 text-3xl">
@@ -266,14 +257,23 @@ WhatsApp
 </div>
 
 
+
+<p class="font-bold text-xl">
+
+9.5 / 10
+
+</p>
+
+
 <p>
 
-Highly rated by Booking.com guests
+Booking.com Guest Rating
 
 </p>
 
 
 </div>
+
 
 
 
@@ -288,7 +288,10 @@ Highly rated by Booking.com guests
 
 
 
-<!-- QUICK INFORMATION -->
+
+
+
+<!-- WHY GUESTS LIKE US -->
 
 
 <section class="py-20 bg-white">
@@ -297,150 +300,120 @@ Highly rated by Booking.com guests
 <div class="max-w-6xl mx-auto px-6">
 
 
-<div class="grid md:grid-cols-4 gap-8 text-center">
+<h2 class="text-5xl text-center font-bold mb-12">
 
-
-<div class="card bg-slate-100 rounded-3xl p-8">
-
-<i class="fa-solid fa-star text-4xl text-yellow-500"></i>
-
-<h3 class="text-3xl font-bold mt-4">
-9.5+
-</h3>
-
-<p>
-Guest Rating
-</p>
-
-
-</div>
-
-
-
-<div class="card bg-slate-100 rounded-3xl p-8">
-
-<i class="fa-solid fa-umbrella-beach text-4xl text-cyan-600"></i>
-
-<h3 class="text-3xl font-bold mt-4">
-50m
-</h3>
-
-<p>
-Beach Distance
-</p>
-
-
-</div>
-
-
-
-<div class="card bg-slate-100 rounded-3xl p-8">
-
-<i class="fa-solid fa-car text-4xl text-teal-600"></i>
-
-<h3 class="text-3xl font-bold mt-4">
-Free
-</h3>
-
-<p>
-Parking
-</p>
-
-
-</div>
-
-
-
-<div class="card bg-slate-100 rounded-3xl p-8">
-
-<i class="fa-solid fa-phone text-4xl text-blue-600"></i>
-
-<h3 class="text-3xl font-bold mt-4">
-24/7
-</h3>
-
-<p>
-Support
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- DIRECT BOOKING SECTION -->
-
-
-<section id="booking"
-
-class="py-24 bg-gradient-to-br from-teal-700 to-cyan-600 text-white">
-
-
-<div class="max-w-6xl mx-auto px-6 text-center">
-
-
-<h2 class="text-5xl font-bold mb-6">
-
-Book Direct With Eldi
+Why Guests Choose Us
 
 </h2>
 
 
 
-<p class="text-xl mb-12">
-
-Check availability, prices and reserve your stay
-
-</p>
+<div class="grid md:grid-cols-4 gap-8">
 
 
 
 
-<div class="bg-white rounded-3xl p-10 text-slate-800 shadow-2xl">
+
+<div class="card bg-slate-100 rounded-3xl p-8 text-center">
+
+<i class="fa-solid fa-umbrella-beach text-4xl text-cyan-600"></i>
 
 
-<h3 class="text-3xl font-bold mb-6">
+<h3 class="text-2xl font-bold mt-5">
 
-Availability Calendar
+Great Location
 
 </h3>
 
 
+<p class="mt-3">
 
-<!-- SMOOBU WIDGET WILL BE INSERTED HERE -->
-
-<div class="border-2 border-dashed border-slate-300 rounded-3xl p-10">
-
-
-<p class="text-slate-500">
-
-Smoobu Booking Calendar
-
-</p>
-
-
-<p class="text-sm mt-3">
-
-Widget will appear here after Smoobu connection
+Only 50 meters from the beach
 
 </p>
 
 
 </div>
+
+
+
+
+
+
+<div class="card bg-slate-100 rounded-3xl p-8 text-center">
+
+<i class="fa-solid fa-car text-4xl text-teal-600"></i>
+
+
+<h3 class="text-2xl font-bold mt-5">
+
+Free Parking
+
+</h3>
+
+
+<p class="mt-3">
+
+Parking available near apartment
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card bg-slate-100 rounded-3xl p-8 text-center">
+
+<i class="fa-solid fa-house text-4xl text-blue-600"></i>
+
+
+<h3 class="text-2xl font-bold mt-5">
+
+Fully Equipped
+
+</h3>
+
+
+<p class="mt-3">
+
+Kitchen, washing machine, WiFi
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card bg-slate-100 rounded-3xl p-8 text-center">
+
+<i class="fa-solid fa-heart text-4xl text-red-500"></i>
+
+
+<h3 class="text-2xl font-bold mt-5">
+
+Friendly Hosts
+
+</h3>
+
+
+<p class="mt-3">
+
+Helpful and welcoming service
+
+</p>
+
+
+</div>
+
 
 
 
@@ -451,6 +424,8 @@ Widget will appear here after Smoobu connection
 
 
 </section>
+
+
 
 
 
@@ -461,9 +436,7 @@ Widget will appear here after Smoobu connection
 <!-- GALLERY -->
 
 
-<section id="gallery"
-
-class="py-24">
+<section id="gallery" class="py-24">
 
 
 <div class="max-w-7xl mx-auto px-6">
@@ -477,40 +450,38 @@ Apartment Gallery
 
 
 
-<div class="grid md:grid-cols-3 gap-6 gallery">
+
+<div class="grid md:grid-cols-3 gap-6">
 
 
-<img class="rounded-3xl h-80 w-full object-cover"
 
-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900"
 
-
-<img class="rounded-3xl h-80 w-full object-cover"
-
-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900">
+class="rounded-3xl h-80 w-full object-cover">
 
 
-<img class="rounded-3xl h-80 w-full object-cover"
 
-src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900"
 
-
-<img class="rounded-3xl h-80 w-full object-cover"
-
-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900">
+class="rounded-3xl h-80 w-full object-cover">
 
 
-<img class="rounded-3xl h-80 w-full object-cover"
 
-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900">
+<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900"
 
+class="rounded-3xl h-80 w-full object-cover">
 
-<img class="rounded-3xl h-80 w-full object-cover"
-
-src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900">
 
 
 </div>
+
+
+<p class="text-center mt-8 text-slate-500">
+
+Real apartment photos will be added here.
+
+</p>
+
 
 
 </div>
@@ -525,59 +496,72 @@ src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900">
 <div class="max-w-6xl mx-auto px-6">
 
 
-<h2 class="text-5xl font-bold text-center mb-6">
+<h2 class="text-5xl font-bold text-center mb-5">
 
 Guest Reviews
 
 </h2>
 
 
-<p class="text-center text-xl text-slate-600 mb-12">
+<p class="text-center text-xl text-slate-600 mb-10">
 
-Real reviews from Booking.com guests
-
-</p>
-
-
-
-<div class="text-center mb-10">
-
-<div class="inline-block bg-teal-700 text-white rounded-3xl px-10 py-6">
-
-
-<p class="text-5xl font-bold">
-
-9.5 ⭐
+Verified reviews from Booking.com guests
 
 </p>
 
 
-<p>
 
-Excellent guest satisfaction
+<div class="flex justify-center mb-12">
+
+
+<div class="bg-teal-700 text-white rounded-3xl px-12 py-8 text-center shadow-xl">
+
+
+<div class="text-yellow-300 text-4xl">
+
+★★★★★
+
+</div>
+
+
+<div class="text-5xl font-bold">
+
+9.5
+
+</div>
+
+
+<p class="mt-2">
+
+Exceptional guest rating
 
 </p>
 
 
 </div>
 
+
 </div>
 
 
 
 
 
-<div class="review-box max-h-[750px] overflow-y-auto pr-4 space-y-6">
+
+<div class="review-scroll max-h-[850px] overflow-y-auto space-y-8 pr-4">
 
 
 
 
 
-<!-- REVIEW -->
 
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
 
-<div class="flex justify-between flex-wrap">
+<!-- REVIEW 1 -->
+
+<div class="bg-slate-100 rounded-3xl p-8">
+
+
+<div class="flex justify-between flex-wrap gap-4">
 
 
 <div>
@@ -595,30 +579,32 @@ Solo traveller • June 2026 • 9 nights
 
 </p>
 
+
 </div>
 
 
-<div class="text-yellow-500 text-xl">
+<span class="text-yellow-500 text-xl">
 
 ★★★★★
 
-</div>
+</span>
 
 
 </div>
 
 
-<div class="mt-5 bg-white rounded-2xl p-5">
+
+<div class="mt-5 bg-white rounded-2xl p-6">
 
 
-<p class="font-bold text-teal-700">
+<strong class="text-teal-700">
 
 10 / 10 Exceptional
 
-</p>
+</strong>
 
 
-<p class="mt-3">
+<p class="mt-4">
 
 "Everything was as it should. We had a lovely stay."
 
@@ -627,6 +613,7 @@ Solo traveller • June 2026 • 9 nights
 
 </div>
 
+
 </div>
 
 
@@ -634,10 +621,14 @@ Solo traveller • June 2026 • 9 nights
 
 
 
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
+
+<!-- REVIEW 2 -->
+
+<div class="bg-slate-100 rounded-3xl p-8">
 
 
-<div class="flex justify-between flex-wrap">
+<div class="flex justify-between flex-wrap gap-4">
+
 
 <div>
 
@@ -647,42 +638,47 @@ Mateusz 🇵🇱 Poland
 
 </h3>
 
+
 <p class="text-slate-500">
 
 Couple • September 2025 • 5 nights
 
 </p>
 
+
 </div>
 
 
-<div class="text-yellow-500 text-xl">
+<span class="text-yellow-500 text-xl">
 
 ★★★★★
 
-</div>
+</span>
 
 
 </div>
 
 
-<div class="mt-5 bg-white rounded-2xl p-5">
 
 
-<p class="font-bold text-teal-700">
+<div class="mt-5 bg-white rounded-2xl p-6">
 
-9 / 10 Great place
+
+<strong class="text-teal-700">
+
+9 / 10 Great place for such a price
+
+</strong>
+
+
+
+<p class="mt-4">
+
+"Price was very low. Owner is very helpful and responds quickly. The apartment is located in a gated green estate, quiet and peaceful away from traffic. Parking is available. Very well equipped with towels, blankets, hair dryer, mosquito nets and kitchen equipment."
 
 </p>
 
 
-<p class="mt-3">
-
-"Price was very good. Owner is very helpful and responds quickly. The apartment is located in a quiet gated green area with parking. Very well equipped with towels, blankets, hair dryer, mosquito nets and kitchen equipment."
-
-</p>
-
-
 </div>
 
 
@@ -694,10 +690,13 @@ Couple • September 2025 • 5 nights
 
 
 
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
+<!-- REVIEW 3 -->
+
+<div class="bg-slate-100 rounded-3xl p-8">
 
 
-<div class="flex justify-between flex-wrap">
+<div class="flex justify-between flex-wrap gap-4">
+
 
 <div>
 
@@ -714,38 +713,42 @@ Family • July 2024 • 7 nights
 
 </p>
 
+
 </div>
 
 
-<div class="text-yellow-500 text-xl">
+<span class="text-yellow-500 text-xl">
 
 ★★★★★
 
-</div>
+</span>
 
 
 </div>
 
 
-<div class="mt-5 bg-white rounded-2xl p-5">
 
 
-<p class="font-bold text-teal-700">
+<div class="mt-5 bg-white rounded-2xl p-6">
+
+
+<strong class="text-teal-700">
 
 10 / 10 Exceptional
 
-</p>
+</strong>
 
 
-<p class="mt-3">
+<p class="mt-4">
 
-"Apartment was cosy and clean. Landlords were very sweet and helpful. Perfect location near public and private beaches, promenade, bakery and shops. Washing machine and balcony were great."
+"Apartment was cosy and clean. Landlords were very sweet and helpful. Perfect location near public and private beaches, Golem promenade, bakery and shops. Washing machine and balcony were great."
 
 </p>
 
 
 </div>
 
+
 </div>
 
 
@@ -754,11 +757,13 @@ Family • July 2024 • 7 nights
 
 
 
+<!-- REVIEW 4 -->
 
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
+<div class="bg-slate-100 rounded-3xl p-8">
 
 
-<div class="flex justify-between flex-wrap">
+<div class="flex justify-between flex-wrap gap-4">
+
 
 <div>
 
@@ -775,95 +780,35 @@ Family • July 2024 • 7 nights
 
 </p>
 
+
 </div>
 
 
-<div class="text-yellow-500 text-xl">
+<span class="text-yellow-500 text-xl">
 
 ★★★★★
 
-</div>
+</span>
 
 
 </div>
 
 
-<div class="mt-5 bg-white rounded-2xl p-5">
 
 
-<p class="font-bold text-teal-700">
+<div class="mt-5 bg-white rounded-2xl p-6">
+
+
+<strong class="text-teal-700">
 
 10 / 10 Exceptional
 
-</p>
+</strong>
 
 
-<p class="mt-3">
+<p class="mt-4">
 
-"The apartment was clean. Beds were comfortable. Nice view from the terrace and parking for the car. The owners are very kind and hospitable."
-
-</p>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
-
-
-<div class="flex justify-between flex-wrap">
-
-
-<div>
-
-<h3 class="text-2xl font-bold">
-
-Raffaele 🇮🇹 Italy
-
-</h3>
-
-
-<p class="text-slate-500">
-
-Solo traveller • July 2026 • 4 nights
-
-</p>
-
-
-</div>
-
-
-<div class="text-yellow-500 text-xl">
-
-★★★★★
-
-</div>
-
-
-</div>
-
-
-<div class="mt-5 bg-white rounded-2xl p-5">
-
-
-<p class="font-bold text-teal-700">
-
-10 / 10 Exceptional
-
-</p>
-
-
-<p class="mt-3">
-
-"Clean apartment. The owner is available and kind."
+"The apartment was clean. Beds were comfortable. Nice view from the terrace and parking for the car. The owners are very kind and hospitable. The kitchen has everything a kitchen needs."
 
 </p>
 
@@ -879,74 +824,12 @@ Solo traveller • July 2026 • 4 nights
 
 
 
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
+<!-- REVIEW 5 -->
+
+<div class="bg-slate-100 rounded-3xl p-8">
 
 
-<div class="flex justify-between flex-wrap">
-
-
-<div>
-
-<h3 class="text-2xl font-bold">
-
-Sławek 🇵🇱 Poland
-
-</h3>
-
-
-<p class="text-slate-500">
-
-Couple • June 2026 • 1 night
-
-</p>
-
-
-</div>
-
-
-<div class="text-yellow-500 text-xl">
-
-★★★★★
-
-</div>
-
-
-</div>
-
-
-<div class="mt-5 bg-white rounded-2xl p-5">
-
-
-<p class="font-bold text-teal-700">
-
-10 / 10 Exceptional
-
-</p>
-
-
-<p class="mt-3">
-
-"Great location and very friendly owners."
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="bg-slate-100 rounded-3xl p-8 shadow">
-
-
-<div class="flex justify-between flex-wrap">
+<div class="flex justify-between flex-wrap gap-4">
 
 
 <div>
@@ -968,29 +851,31 @@ Group • October 2025 • 2 nights
 </div>
 
 
-<div class="text-yellow-500 text-xl">
+<span class="text-yellow-500 text-xl">
 
 ★★★★★
 
-</div>
+</span>
 
 
 </div>
 
 
-<div class="mt-5 bg-white rounded-2xl p-5">
 
 
-<p class="font-bold text-teal-700">
+<div class="mt-5 bg-white rounded-2xl p-6">
+
+
+<strong class="text-teal-700">
 
 10 / 10 Exceptional
 
-</p>
+</strong>
 
 
-<p class="mt-3">
+<p class="mt-4">
 
-"Great apartment with bathroom and kitchen. Very clean. Lovely owners. Very good location close to beach, restaurants and shops. Free parking."
+"Great apartment with bathroom and kitchen. Very clean. Lovely owners. Very good location close to beach, restaurants and shops. Free parking. Highly recommended."
 
 </p>
 
@@ -1006,26 +891,226 @@ Group • October 2025 • 2 nights
 
 
 
-<!-- Continue same structure for remaining reviews -->
+<!-- REVIEW 6 -->
 
-<div class="bg-teal-50 rounded-3xl p-8 text-center">
+<div class="bg-slate-100 rounded-3xl p-8">
+
+
+<div class="flex justify-between flex-wrap gap-4">
+
+
+<div>
+
+<h3 class="text-2xl font-bold">
+
+Sabine 🇫🇷 France
+
+</h3>
+
+
+<p class="text-slate-500">
+
+Couple • September 2024 • 5 nights
+
+</p>
+
+
+</div>
+
+
+<span class="text-yellow-500 text-xl">
+
+★★★★☆
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="mt-5 bg-white rounded-2xl p-6">
+
+
+<strong class="text-teal-700">
+
+8 / 10 Super value for money
+
+</strong>
+
+
+<p class="mt-4">
+
+"The apartment is ideally located near the sea. Parking under the apartment. It had everything necessary: kitchen equipment, air conditioning, mosquito nets and washing machine."
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- REVIEW 7 -->
+
+<div class="bg-slate-100 rounded-3xl p-8">
+
+
+<div class="flex justify-between flex-wrap gap-4">
+
+
+<div>
+
+<h3 class="text-2xl font-bold">
+
+Mirek 🇵🇱 Poland
+
+</h3>
+
+
+<p class="text-slate-500">
+
+Family • June 2024 • 4 nights
+
+</p>
+
+
+</div>
+
+
+<span class="text-yellow-500 text-xl">
+
+★★★★★
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="mt-5 bg-white rounded-2xl p-6">
+
+
+<strong class="text-teal-700">
+
+10 / 10 Exceptional
+
+</strong>
+
+
+<p class="mt-4">
+
+"Great place to relax. Very well equipped. Very good location close to the centre and beach. Very good contact with owners."
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- REVIEW 8 -->
+
+<div class="bg-slate-100 rounded-3xl p-8">
+
+
+<div class="flex justify-between flex-wrap gap-4">
+
+
+<div>
+
+<h3 class="text-2xl font-bold">
+
+Mirosław 🇵🇱 Poland
+
+</h3>
+
+
+<p class="text-slate-500">
+
+Solo traveller • June 2024 • 8 nights
+
+</p>
+
+
+</div>
+
+
+<span class="text-yellow-500 text-xl">
+
+★★★★★
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="mt-5 bg-white rounded-2xl p-6">
+
+
+<strong class="text-teal-700">
+
+9 / 10 Excellent
+
+</strong>
+
+
+<p class="mt-4">
+
+"Very kind hosts, helpful in everything. Great rest and comfortable stay."
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="text-center bg-teal-50 rounded-3xl p-8">
 
 
 <h3 class="text-2xl font-bold">
 
-More Guest Reviews
+More verified reviews
 
 </h3>
 
 
 <p class="mt-3">
 
-More verified Booking.com reviews will continue here.
+Additional Booking.com reviews will continue here.
 
 </p>
 
 
 </div>
+
 
 
 
@@ -1036,12 +1121,9 @@ More verified Booking.com reviews will continue here.
 
 
 </section>
-<!-- DIRECT CONTACT SECTION -->
+<!-- DIRECT BOOKING / CONTACT -->
 
-
-<section id="contact"
-
-class="py-24 bg-gradient-to-br from-teal-700 to-cyan-600 text-white">
+<section id="booking" class="py-24 bg-gradient-to-br from-teal-700 to-cyan-600 text-white">
 
 
 <div class="max-w-6xl mx-auto px-6">
@@ -1056,7 +1138,7 @@ Book Direct With Eldi
 
 <p class="text-center text-xl mb-12">
 
-Ask about prices, availability or special offers
+Ask about availability, prices and special offers
 
 </p>
 
@@ -1069,15 +1151,14 @@ Ask about prices, availability or special offers
 
 
 
-<!-- CONTACT INFORMATION -->
-
+<!-- CONTACT INFO -->
 
 <div class="glass rounded-3xl p-10">
 
 
 <h3 class="text-3xl font-bold mb-8">
 
-Contact Us
+Contact Information
 
 </h3>
 
@@ -1131,21 +1212,27 @@ Golem Beach, Durrës, Albania
 
 
 
-<div class="mt-10">
+<div class="mt-10 bg-white/20 rounded-2xl p-6">
 
 
-<p class="font-semibold">
+<h4 class="font-bold text-xl">
 
-Usually replies within a few hours
+Why book directly?
 
-</p>
+</h4>
 
 
-<p class="text-sm mt-2">
+<ul class="mt-4 space-y-2">
 
-Direct booking may offer better prices than platforms
+<li>✓ Quick response</li>
 
-</p>
+<li>✓ Ask for special prices</li>
+
+<li>✓ Direct communication with the host</li>
+
+<li>✓ No unnecessary questions through platforms</li>
+
+</ul>
 
 
 </div>
@@ -1162,10 +1249,9 @@ Direct booking may offer better prices than platforms
 
 
 
-<!-- CONTACT FORM -->
+<!-- FORM -->
 
-
-<div class="bg-white rounded-3xl p-10 text-slate-800 shadow-2xl">
+<div class="bg-white text-slate-800 rounded-3xl p-10 shadow-2xl">
 
 
 <h3 class="text-3xl font-bold mb-6">
@@ -1173,6 +1259,7 @@ Direct booking may offer better prices than platforms
 Request Availability
 
 </h3>
+
 
 
 
@@ -1184,7 +1271,9 @@ Request Availability
 
 type="text"
 
-placeholder="Your Name"
+name="name"
+
+placeholder="Your name"
 
 required
 
@@ -1198,7 +1287,9 @@ class="w-full p-4 rounded-xl border">
 
 type="email"
 
-placeholder="Your Email"
+name="email"
+
+placeholder="Your email"
 
 required
 
@@ -1212,7 +1303,9 @@ class="w-full p-4 rounded-xl border">
 
 type="tel"
 
-placeholder="Phone / WhatsApp"
+name="phone"
+
+placeholder="WhatsApp / Phone"
 
 class="w-full p-4 rounded-xl border">
 
@@ -1228,9 +1321,9 @@ class="w-full p-4 rounded-xl border">
 
 type="date"
 
-class="p-4 rounded-xl border"
+name="checkin"
 
-placeholder="Check-in">
+class="p-4 rounded-xl border">
 
 
 
@@ -1238,12 +1331,14 @@ placeholder="Check-in">
 
 type="date"
 
-class="p-4 rounded-xl border"
+name="checkout"
 
-placeholder="Check-out">
+class="p-4 rounded-xl border">
 
 
 </div>
+
+
 
 
 
@@ -1253,7 +1348,9 @@ placeholder="Check-out">
 
 type="number"
 
-placeholder="Number of Guests"
+name="guests"
+
+placeholder="Number of guests"
 
 class="w-full p-4 rounded-xl border">
 
@@ -1264,9 +1361,11 @@ class="w-full p-4 rounded-xl border">
 
 <textarea
 
-placeholder="Message"
+name="message"
 
 rows="4"
+
+placeholder="Your message"
 
 class="w-full p-4 rounded-xl border"></textarea>
 
@@ -1275,10 +1374,7 @@ class="w-full p-4 rounded-xl border"></textarea>
 
 
 
-
 <button
-
-type="submit"
 
 class="w-full bg-teal-700 text-white p-5 rounded-xl font-bold text-lg hover:bg-teal-800">
 
@@ -1294,16 +1390,17 @@ Send Request
 
 
 
+<p class="text-center text-sm text-slate-500 mt-5">
 
-<p class="text-sm text-center text-slate-500 mt-5">
-
-Your request will receive an automatic confirmation email.
+We usually reply within a few hours.
 
 </p>
 
 
-
 </div>
+
+
+
 
 
 </div>
@@ -1321,7 +1418,8 @@ Your request will receive an automatic confirmation email.
 
 
 
-<!-- LOCATION -->
+
+<!-- MAP -->
 
 
 <section class="py-24 bg-slate-50">
@@ -1332,15 +1430,15 @@ Your request will receive an automatic confirmation email.
 
 <h2 class="text-5xl font-bold text-center mb-10">
 
-Find Us
+Location
 
 </h2>
 
 
-<p class="text-center mb-10 text-lg">
+<p class="text-center text-lg mb-10">
 
 St. Qemal Stafa, St. Sulejman Delvina,
-Golem, Durrës 2504 Albania
+Golem, Durrës 2504, Albania
 
 </p>
 
@@ -1362,13 +1460,13 @@ loading="lazy"
 
 allowfullscreen
 
-src="https://maps.google.com/maps?q=Golem%20Durres%20Albania&t=&z=14&ie=UTF8&iwloc=&output=embed">
+src="https://maps.google.com/maps?q=Golem%20Durres%20Albania&t=&z=14&output=embed">
 
 </iframe>
 
 
-
 </div>
+
 
 
 </div>
@@ -1382,13 +1480,18 @@ src="https://maps.google.com/maps?q=Golem%20Durres%20Albania&t=&z=14&ie=UTF8&iwl
 
 
 
+
+
 <!-- FOOTER -->
 
 
-<footer class="bg-slate-950 text-slate-400 py-14 text-center">
+<footer class="bg-slate-950 text-slate-400 py-14">
 
 
-<h3 class="text-white text-3xl font-bold mb-4">
+<div class="max-w-6xl mx-auto px-6 text-center">
+
+
+<h3 class="text-white text-3xl font-bold">
 
 Eldi's Apartment
 
@@ -1396,26 +1499,29 @@ Eldi's Apartment
 
 
 
-<p>
+<p class="mt-4">
 
-Luxury stay near Golem Beach
+Comfortable apartment near Golem Beach
 
 </p>
 
 
 
-<p class="mt-3">
+
+<p class="mt-5">
 
 📞 +355 69 604 5101
 
 </p>
 
 
-<p class="mt-3">
+
+<p>
 
 ✉ booking@eldis-apartment.com
 
 </p>
+
 
 
 
@@ -1424,6 +1530,10 @@ Luxury stay near Golem Beach
 © 2026 Eldi's Apartment. All rights reserved.
 
 </p>
+
+
+
+</div>
 
 
 </footer>
@@ -1439,7 +1549,9 @@ Luxury stay near Golem Beach
 <!-- FLOATING WHATSAPP -->
 
 
-<a href="https://wa.me/355696045101"
+<a
+
+href="https://wa.me/355696045101"
 
 target="_blank"
 
@@ -1459,7 +1571,7 @@ class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full fle
 
 
 
-<!-- FORM HANDLER PLACEHOLDER -->
+<!-- BASIC FORM PLACEHOLDER -->
 
 
 <script>
@@ -1472,12 +1584,13 @@ e.preventDefault();
 
 
 alert(
-"Thank you for your request. We will contact you shortly."
+
+"Thank you! Your request has been received. We will contact you shortly."
+
 );
 
 
 });
-
 
 
 </script>
@@ -1490,7 +1603,8 @@ alert(
 
 
 
-<!-- GOOGLE STRUCTURED DATA -->
+
+<!-- SEO STRUCTURED DATA -->
 
 
 <script type="application/ld+json">
@@ -1503,7 +1617,11 @@ alert(
 
 "name":"Eldi's Apartment",
 
-"description":"Modern apartment near Golem Beach, Durres Albania",
+"description":"Comfortable apartment near Golem Beach, Durrës Albania",
+
+"telephone":"+355696045101",
+
+"email":"booking@eldis-apartment.com",
 
 "address":{
 
@@ -1513,20 +1631,28 @@ alert(
 
 "addressLocality":"Golem",
 
-"addressRegion":"Durres",
+"addressRegion":"Durrës",
 
-"addressCountry":"AL"
+"addressCountry":"Albania"
 
 },
 
+"aggregateRating":{
 
-"telephone":"+355696045101",
+"@type":"AggregateRating",
 
-"email":"booking@eldis-apartment.com"
+"ratingValue":"9.5",
+
+"bestRating":"10",
+
+"ratingCount":"20"
+
+}
 
 }
 
 </script>
+
 
 
 
