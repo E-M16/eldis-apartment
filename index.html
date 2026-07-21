@@ -1265,6 +1265,20 @@ Request Availability
 
 <form id="bookingForm" class="space-y-5">
 
+<input
+
+type="text"
+
+name="website"
+
+tabindex="-1"
+
+autocomplete="off"
+
+aria-hidden="true"
+
+style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+
 
 
 <input
@@ -1375,6 +1389,8 @@ class="w-full p-4 rounded-xl border"></textarea>
 
 
 <button
+
+type="submit"
 
 class="w-full bg-teal-700 text-white p-5 rounded-xl font-bold text-lg hover:bg-teal-800">
 
@@ -1576,22 +1592,76 @@ class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full fle
 
 <script>
 
+const CONTACT_WORKER_URL = "https://eldis-apartment-contact.eldi-1291.workers.dev/";
 
-document.getElementById("bookingForm").addEventListener("submit",function(e){
+const bookingForm = document.getElementById("bookingForm");
 
+bookingForm.addEventListener("submit", async function (event) {
 
-e.preventDefault();
+event.preventDefault();
 
+const form = event.currentTarget;
+const button = form.querySelector('button[type="submit"], button');
+const originalButtonText = button.textContent;
 
-alert(
+button.disabled = true;
+button.textContent = "Sending...";
+button.classList.add("opacity-60", "cursor-not-allowed");
 
-"Thank you! Your request has been received. We will contact you shortly."
+const payload = {
+name: form.elements.name.value.trim(),
+email: form.elements.email.value.trim(),
+phone: form.elements.phone.value.trim(),
+checkin: form.elements.checkin.value,
+checkout: form.elements.checkout.value,
+guests: form.elements.guests.value,
+message: form.elements.message.value.trim(),
+website: form.elements.website.value
+};
 
-);
+try {
 
-
+const response = await fetch(CONTACT_WORKER_URL, {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify(payload)
 });
 
+let result;
+
+try {
+result = await response.json();
+} catch {
+throw new Error("The server returned an invalid response.");
+}
+
+if (!response.ok || !result.success) {
+throw new Error(result.message || "Unable to send your request.");
+}
+
+alert("Thank you! Your request was sent successfully. Please check your email for confirmation.");
+form.reset();
+
+} catch (error) {
+
+console.error("Booking form error:", error);
+
+alert(
+error.message ||
+"Your request could not be sent. Please contact us through WhatsApp or call +355 69 604 5101."
+);
+
+} finally {
+
+button.disabled = false;
+button.textContent = originalButtonText;
+button.classList.remove("opacity-60", "cursor-not-allowed");
+
+}
+
+});
 
 </script>
 
