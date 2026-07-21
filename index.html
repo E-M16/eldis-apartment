@@ -28,6 +28,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 
 
 <style>
@@ -1388,11 +1390,30 @@ class="w-full p-4 rounded-xl border"></textarea>
 
 
 
+<div class="flex justify-center">
+
+<div
+class="cf-turnstile"
+data-sitekey="0x4AAAAAAD6kFVdBAkR4XHXC"
+data-theme="light">
+</div>
+
+</div>
+
+
+<div
+id="formStatus"
+role="status"
+aria-live="polite"
+class="hidden rounded-xl p-4 text-sm font-semibold">
+</div>
+
+
 <button
 
 type="submit"
 
-class="w-full bg-teal-700 text-white p-5 rounded-xl font-bold text-lg hover:bg-teal-800">
+class="w-full bg-teal-700 text-white p-5 rounded-xl font-bold text-lg hover:bg-teal-800 disabled:opacity-60 disabled:cursor-not-allowed">
 
 
 Send Request
@@ -1587,89 +1608,123 @@ class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full fle
 
 
 
-<!-- BASIC FORM PLACEHOLDER -->
-
+<!-- BOOKING FORM -->
 
 <script>
 
-const CONTACT_WORKER_URL = "https://eldis-apartment-contact.eldi-1291.workers.dev/";
+const CONTACT_WORKER_URL =
+  "https://eldis-apartment-contact.eldi-1291.workers.dev/";
 
 const bookingForm = document.getElementById("bookingForm");
+const formStatus = document.getElementById("formStatus");
+
+function showFormStatus(type, message) {
+  formStatus.textContent = message;
+  formStatus.className =
+    "rounded-xl p-4 text-sm font-semibold " +
+    (type === "success"
+      ? "bg-green-100 text-green-800 border border-green-300"
+      : "bg-red-100 text-red-800 border border-red-300");
+
+  formStatus.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+}
+
+function clearFormStatus() {
+  formStatus.textContent = "";
+  formStatus.className = "hidden rounded-xl p-4 text-sm font-semibold";
+}
 
 bookingForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  clearFormStatus();
 
-event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const originalButtonText = button.textContent;
 
-const form = event.currentTarget;
-const button = form.querySelector('button[type="submit"], button');
-const originalButtonText = button.textContent;
+  const turnstileField = form.querySelector(
+    '[name="cf-turnstile-response"]'
+  );
 
-button.disabled = true;
-button.textContent = "Sending...";
-button.classList.add("opacity-60", "cursor-not-allowed");
+  const turnstileToken = turnstileField
+    ? turnstileField.value
+    : "";
 
-const payload = {
-name: form.elements.name.value.trim(),
-email: form.elements.email.value.trim(),
-phone: form.elements.phone.value.trim(),
-checkin: form.elements.checkin.value,
-checkout: form.elements.checkout.value,
-guests: form.elements.guests.value,
-message: form.elements.message.value.trim(),
-website: form.elements.website.value
-};
+  if (!turnstileToken) {
+    showFormStatus(
+      "error",
+      "Please complete the security verification before sending."
+    );
+    return;
+  }
 
-try {
+  button.disabled = true;
+  button.textContent = "Sending...";
 
-const response = await fetch(CONTACT_WORKER_URL, {
-method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify(payload)
-});
+  const payload = {
+    name: form.elements.name.value.trim(),
+    email: form.elements.email.value.trim(),
+    phone: form.elements.phone.value.trim(),
+    checkin: form.elements.checkin.value,
+    checkout: form.elements.checkout.value,
+    guests: form.elements.guests.value,
+    message: form.elements.message.value.trim(),
+    website: form.elements.website.value,
+    turnstileToken: turnstileToken
+  };
 
-let result;
+  try {
+    const response = await fetch(CONTACT_WORKER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-try {
-result = await response.json();
-} catch {
-throw new Error("The server returned an invalid response.");
-}
+    let result;
 
-if (!response.ok || !result.success) {
-throw new Error(result.message || "Unable to send your request.");
-}
+    try {
+      result = await response.json();
+    } catch {
+      throw new Error("The server returned an invalid response.");
+    }
 
-alert("Thank you! Your request was sent successfully. Please check your email for confirmation.");
-form.reset();
+    if (!response.ok || !result.success) {
+      throw new Error(
+        result.message || "Unable to send your request."
+      );
+    }
 
-} catch (error) {
+    form.reset();
 
-console.error("Booking form error:", error);
+    showFormStatus(
+      "success",
+      result.message ||
+        "Thank you! Your request was sent successfully. We will reply as soon as possible."
+    );
+  } catch (error) {
+    console.error("Booking form error:", error);
 
-alert(
-error.message ||
-"Your request could not be sent. Please contact us through WhatsApp or call +355 69 604 5101."
-);
+    showFormStatus(
+      "error",
+      error.message ||
+        "Your request could not be sent. Please contact us through WhatsApp or call +355 69 604 5101."
+    );
+  } finally {
+    button.disabled = false;
+    button.textContent = originalButtonText;
 
-} finally {
-
-button.disabled = false;
-button.textContent = originalButtonText;
-button.classList.remove("opacity-60", "cursor-not-allowed");
-
-}
-
+    if (window.turnstile) {
+      window.turnstile.reset();
+    }
+  }
 });
 
 </script>
-
-
-
-
-
-
 
 
 
