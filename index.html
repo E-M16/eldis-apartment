@@ -87,6 +87,160 @@
   }
 </style>
 
+
+<style>
+/* Mobile-light optimization */
+@media (max-width: 767px) {
+  /* Reduce the very tall page rhythm on phones */
+  section.py-24,
+  section.py-20 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  /* Large desktop headings were visually heavy on narrow screens */
+  h1.text-5xl,
+  h2.text-5xl,
+  .text-5xl {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h2.text-3xl,
+  .text-3xl {
+    line-height: 1.2;
+  }
+
+  .text-xl {
+    font-size: 1.05rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Tighter containers and cards */
+  .px-6 {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+
+  .p-8 {
+    padding: 1.35rem !important;
+  }
+
+  .p-7 {
+    padding: 1.2rem !important;
+  }
+
+  .rounded-3xl {
+    border-radius: 1.25rem !important;
+  }
+
+  .mb-12 {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Disable decorative entrance motion on mobile for a quicker feel */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Compact the six benefit cards into a lighter two-column layout */
+  #highlights .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .75rem !important;
+  }
+
+  #highlights .v2-card {
+    padding: 1rem !important;
+  }
+
+  #highlights .v2-card i {
+    font-size: 1.6rem !important;
+  }
+
+  #highlights .v2-card h3 {
+    font-size: 1rem !important;
+    margin-top: .65rem !important;
+  }
+
+  #highlights .v2-card p {
+    display: none;
+  }
+
+  /* Make the booking process feel like a short checklist */
+  #booking-process .grid {
+    gap: .75rem !important;
+  }
+
+  #booking-process .v2-card {
+    display: grid;
+    grid-template-columns: 2.5rem 2.2rem 1fr;
+    align-items: center;
+    column-gap: .75rem;
+    text-align: left !important;
+    padding: 1rem !important;
+  }
+
+  #booking-process .v2-card > div {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    margin: 0 !important;
+    font-size: 1rem !important;
+  }
+
+  #booking-process .v2-card > i {
+    margin: 0 !important;
+    font-size: 1.5rem !important;
+  }
+
+  #booking-process .v2-card h3 {
+    margin: 0 !important;
+    font-size: 1.05rem !important;
+  }
+
+  #booking-process .v2-card p {
+    display: none;
+  }
+
+  /* Lighter FAQ rows */
+  .faq-toggle {
+    padding: 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  .faq-answer p {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 1rem !important;
+    font-size: .95rem;
+    line-height: 1.6 !important;
+  }
+
+  /* Reduce constant visual pressure from fixed actions */
+  .mobile-book-bar {
+    padding: .55rem .75rem !important;
+  }
+
+  .mobile-book-bar a {
+    padding-top: .85rem !important;
+    padding-bottom: .85rem !important;
+  }
+
+  .whatsapp-float {
+    width: 48px !important;
+    height: 48px !important;
+    bottom: 78px !important;
+    right: 14px !important;
+    font-size: 1.4rem !important;
+  }
+
+  body {
+    padding-bottom: 68px !important;
+  }
+}
+</style>
+
 </head>
 
 
@@ -447,19 +601,19 @@ Apartment Gallery
 
 
 
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900"
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=78"
 
 class="rounded-3xl h-80 w-full object-cover">
 
 
 
-<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900"
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=78"
 
 class="rounded-3xl h-80 w-full object-cover">
 
 
 
-<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900"
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=78"
 
 class="rounded-3xl h-80 w-full object-cover">
 
