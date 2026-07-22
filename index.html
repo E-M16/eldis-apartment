@@ -1330,28 +1330,32 @@ class="w-full p-4 rounded-xl border">
 
 
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-
+<label class="block">
+<span class="block text-sm font-semibold text-slate-700 mb-2">Check-in</span>
 <input
-
 type="date"
-
 name="checkin"
+required
+class="w-full p-4 rounded-xl border">
+</label>
 
-class="p-4 rounded-xl border">
-
-
-
+<label class="block">
+<span class="block text-sm font-semibold text-slate-700 mb-2">Check-out</span>
 <input
-
 type="date"
-
 name="checkout"
+required
+class="w-full p-4 rounded-xl border">
+</label>
 
-class="p-4 rounded-xl border">
+</div>
 
-
+<div
+id="stayDuration"
+aria-live="polite"
+class="hidden rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 text-sm font-semibold text-teal-800">
 </div>
 
 
@@ -1617,6 +1621,79 @@ const CONTACT_WORKER_URL =
 
 const bookingForm = document.getElementById("bookingForm");
 const formStatus = document.getElementById("formStatus");
+const checkinInput = bookingForm.elements.checkin;
+const checkoutInput = bookingForm.elements.checkout;
+const guestsInput = bookingForm.elements.guests;
+const stayDuration = document.getElementById("stayDuration");
+
+function formatLocalDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function addDays(dateString, days) {
+  const date = new Date(`${dateString}T12:00:00`);
+  date.setDate(date.getDate() + days);
+  return formatLocalDate(date);
+}
+
+function updateStayDuration() {
+  const checkin = checkinInput.value;
+  const checkout = checkoutInput.value;
+
+  if (!checkin || !checkout) {
+    stayDuration.textContent = "";
+    stayDuration.classList.add("hidden");
+    return;
+  }
+
+  const start = new Date(`${checkin}T12:00:00`);
+  const end = new Date(`${checkout}T12:00:00`);
+  const nights = Math.round((end - start) / 86400000);
+
+  if (nights < 1) {
+    stayDuration.textContent = "Check-out must be after check-in.";
+    stayDuration.className =
+      "rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800";
+    return;
+  }
+
+  const guestCount = Number.parseInt(guestsInput.value, 10);
+  const guestText = guestCount > 0
+    ? ` • ${guestCount} ${guestCount === 1 ? "guest" : "guests"}`
+    : "";
+
+  stayDuration.textContent =
+    `Stay duration: ${nights} ${nights === 1 ? "night" : "nights"}${guestText}`;
+  stayDuration.className =
+    "rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 text-sm font-semibold text-teal-800";
+}
+
+const today = formatLocalDate(new Date());
+checkinInput.min = today;
+checkoutInput.min = addDays(today, 1);
+
+checkinInput.addEventListener("change", function () {
+  if (!checkinInput.value) {
+    checkoutInput.min = addDays(today, 1);
+    updateStayDuration();
+    return;
+  }
+
+  const earliestCheckout = addDays(checkinInput.value, 1);
+  checkoutInput.min = earliestCheckout;
+
+  if (!checkoutInput.value || checkoutInput.value < earliestCheckout) {
+    checkoutInput.value = earliestCheckout;
+  }
+
+  updateStayDuration();
+});
+
+checkoutInput.addEventListener("change", updateStayDuration);
+guestsInput.addEventListener("input", updateStayDuration);
 
 function showFormStatus(type, message) {
   formStatus.textContent = message;
@@ -1700,6 +1777,9 @@ bookingForm.addEventListener("submit", async function (event) {
     }
 
     form.reset();
+    checkinInput.min = formatLocalDate(new Date());
+    checkoutInput.min = addDays(checkinInput.min, 1);
+    updateStayDuration();
 
     showFormStatus(
       "success",
