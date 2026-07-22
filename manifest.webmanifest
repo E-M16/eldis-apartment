@@ -1,0 +1,9 @@
+{
+  "name": "Eldi's Apartment",
+  "short_name": "Eldi's Apartment",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f766e",
+  "description": "Vacation apartment near Golem Beach, Durrës, Albania."
+}
