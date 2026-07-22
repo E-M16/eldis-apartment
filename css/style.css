@@ -1,0 +1,60 @@
+body {
+font-family:'Inter',sans-serif;
+}
+
+
+h1,h2,h3 {
+font-family:'Playfair Display',serif;
+}
+
+
+.hero {
+
+background:
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.55)
+),
+url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000");
+
+background-size:cover;
+background-position:center;
+
+}
+
+
+.glass {
+
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+
+}
+
+
+.card {
+
+transition:.3s;
+
+}
+
+
+.card:hover {
+
+transform:translateY(-8px);
+
+}
+
+
+.review-scroll::-webkit-scrollbar {
+
+width:8px;
+
+}
+
+
+.review-scroll::-webkit-scrollbar-thumb {
+
+background:#0f766e;
+border-radius:20px;
+
+}
