@@ -42,6 +42,7 @@
 
 
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 
 
 
@@ -220,6 +221,56 @@
     right: 14px !important;
     font-size: 1.4rem !important;
   }
+}
+</style>
+
+
+<style>
+/* Booking calendar: keeps the existing Tailwind form design while styling Flatpickr. */
+.flatpickr-calendar {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, .18);
+  font-family: Inter, sans-serif;
+  overflow: hidden;
+}
+.flatpickr-months {
+  background: #0f766e;
+  color: #fff;
+  padding: .35rem 0;
+}
+.flatpickr-current-month,
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year,
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+  color: #fff;
+  fill: #fff;
+}
+.flatpickr-weekdays { background: #f0fdfa; }
+span.flatpickr-weekday { color: #0f766e; font-weight: 700; }
+.flatpickr-day { border-radius: .65rem; }
+.flatpickr-day:hover,
+.flatpickr-day:focus { border-color: #99f6e4; background: #ccfbf1; }
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  border-color: #0f766e;
+  background: #0f766e;
+}
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover,
+.flatpickr-day.booked-date {
+  color: #94a3b8;
+  background: #f1f5f9;
+  border-color: transparent;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+.flatpickr-input[readonly] { cursor: pointer; background-color: #fff; }
+@media (max-width: 420px) {
+  .flatpickr-calendar { width: calc(100vw - 24px); }
+  .flatpickr-days, .dayContainer { min-width: 100%; width: 100%; max-width: 100%; }
 }
 </style>
 
@@ -1491,19 +1542,23 @@ class="w-full p-4 rounded-xl border">
 <label class="block">
 <span class="block text-sm font-semibold text-slate-700 mb-2">Check-in</span>
 <input
-type="date"
+type="text"
 name="checkin"
+placeholder="Select check-in date"
+autocomplete="off"
 required
-class="w-full p-4 rounded-xl border">
+class="w-full p-4 rounded-xl border bg-white">
 </label>
 
 <label class="block">
 <span class="block text-sm font-semibold text-slate-700 mb-2">Check-out</span>
 <input
-type="date"
+type="text"
 name="checkout"
+placeholder="Select check-out date"
+autocomplete="off"
 required
-class="w-full p-4 rounded-xl border">
+class="w-full p-4 rounded-xl border bg-white">
 </label>
 
 </div>
@@ -1823,6 +1878,7 @@ class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 r
 
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/utils.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js" defer></script>
 <script src="assets/js/booking.js" defer></script>
 <script src="assets/js/contact.js" defer></script>
 
