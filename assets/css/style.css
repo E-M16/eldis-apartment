@@ -124,3 +124,22 @@ border-radius:20px;
     transform: translateY(-20px) !important;
   }
 }
+
+/* ===== Final title and location-line polish ===== */
+@media (max-width: 767px) {
+
+  /* Slightly smaller hero title for better mobile balance. */
+  #home h1 {
+    font-size: 4.2rem !important;
+    line-height: .94 !important;
+  }
+
+  /* Keep the location line elegant and on one line. */
+  #home .text-center > p:first-child {
+    font-size: clamp(.62rem, 2.7vw, .82rem) !important;
+    line-height: 1.3 !important;
+    letter-spacing: .26em !important;
+    white-space: nowrap;
+    margin-bottom: 1.15rem !important;
+  }
+}
