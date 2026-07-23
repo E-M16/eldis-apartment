@@ -285,6 +285,70 @@ span.flatpickr-weekday { color: #0f766e; font-weight: 700; }
 }
 </style>
 
+
+<style>
+/* Premium visual refinements */
+.hero {
+  box-shadow: inset 0 0 0 1000px rgba(15, 23, 42, .55);
+}
+
+nav .glass {
+  background: rgba(15, 23, 42, .70);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.v2-card,
+#reviews .bg-slate-100,
+#reviews .bg-white.rounded-2xl,
+#location .bg-white,
+#faq .faq-item {
+  box-shadow: 0 12px 40px rgba(15, 23, 42, .08);
+}
+
+#reviews .bg-slate-100 {
+  border: 1px solid rgba(15, 118, 110, .08);
+}
+
+#gallery img {
+  box-shadow: 0 14px 38px rgba(15, 23, 42, .12);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+#gallery img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, .16);
+}
+
+#booking .glass {
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .18);
+}
+
+#booking .space-y-6 i {
+  display: inline-block;
+  width: 1.6rem;
+  text-align: center;
+  color: #a5f3fc;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    box-shadow: inset 0 0 0 1000px rgba(15, 23, 42, .58);
+  }
+
+  nav .glass {
+    background: rgba(15, 23, 42, .78);
+  }
+
+  #gallery img:hover,
+  .v2-card:hover {
+    transform: none;
+  }
+}
+</style>
+
 </head>
 
 
@@ -574,7 +638,7 @@ Exceptional guest rating
 
 
 
-<div class="review-scroll max-h-[850px] overflow-y-auto space-y-8 pr-4">
+<div class="review-scroll max-h-[850px] overflow-y-auto space-y-10 pr-4">
 
 
 
@@ -1159,7 +1223,7 @@ class="hidden rounded-xl p-4 text-sm font-semibold">
 
 <button
 type="submit"
-class="w-full bg-teal-700 text-white p-5 rounded-xl font-bold text-lg hover:bg-teal-800 disabled:opacity-60 disabled:cursor-not-allowed">
+class="w-full bg-teal-700 text-white px-5 py-[22px] rounded-xl font-bold text-lg hover:bg-teal-800 disabled:opacity-60 disabled:cursor-not-allowed">
 Request Your Direct Price
 </button>
 
@@ -1307,7 +1371,7 @@ Eldi's Apartment
 
 <p class="mt-4">
 
-Comfortable apartment near Golem Beach
+Just 100 Metres from Golem Beach
 
 </p>
 
