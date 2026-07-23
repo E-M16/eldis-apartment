@@ -349,6 +349,87 @@ nav .glass {
 }
 </style>
 
+
+<style>
+/* Navigation and mobile interaction refinements */
+.nav-link {
+  position: relative;
+  padding: .35rem 0;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -.2rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #67e8f9;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .2s ease;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: #a5f3fc;
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+#backToTop.is-visible {
+  display: flex;
+}
+
+section[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 767px) {
+  nav > div {
+    padding-top: .85rem !important;
+  }
+
+  nav .glass {
+    padding: 1rem 1.25rem !important;
+    border-radius: 1.25rem !important;
+  }
+
+  nav .text-xl {
+    font-size: 1.05rem !important;
+  }
+
+  #home .flex.flex-wrap {
+    width: 100%;
+    gap: 1rem !important;
+  }
+
+  #home .flex.flex-wrap > button,
+  #home .flex.flex-wrap > a {
+    width: min(100%, 25rem);
+    min-height: 3.75rem;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  #backToTop {
+    left: 14px !important;
+    bottom: 14px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+</style>
+
 </head>
 
 
@@ -364,7 +445,7 @@ nav .glass {
 <!-- NAVIGATION -->
 
 
-<nav class="fixed top-0 w-full z-50">
+<nav class="absolute top-0 w-full z-50" id="siteNav">
 
 
 <div class="max-w-7xl mx-auto px-6 py-5">
@@ -383,15 +464,15 @@ Eldi's Apartment
 
 <div class="hidden md:flex gap-8 font-medium">
 
-<a href="#home">Home</a>
+<a class="nav-link" href="#home">Home</a>
 
-<a href="#gallery">Gallery</a>
+<a class="nav-link" href="#gallery">Gallery</a>
 
-<a href="#reviews">Reviews</a>
+<a class="nav-link" href="#reviews">Reviews</a>
 
-<a href="#location">Location</a>
+<a class="nav-link" href="#location">Location</a>
 
-<a href="#contact">Contact</a>
+<a class="nav-link" href="#booking">Contact</a>
 
 </div>
 
@@ -1469,6 +1550,17 @@ class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 r
 
 
 
+
+<button
+  type="button"
+  id="backToTop"
+  aria-label="Back to top"
+  title="Back to top"
+  class="fixed bottom-6 left-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-slate-900/85 text-white shadow-xl backdrop-blur transition hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-200">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+
 <!-- BOOKING FORM -->
 
 <script src="assets/js/config.js" defer></script>
@@ -1550,6 +1642,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  const backToTop = document.getElementById("backToTop");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+      history.replaceState(null, "", link.getAttribute("href"));
+    });
+  });
+
+  const updateActiveLink = () => {
+    const marker = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
+    let currentId = "home";
+
+    sections.forEach((section) => {
+      if (section.offsetTop <= marker) currentId = section.id;
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("href") === `#${currentId}`);
+    });
+
+    backToTop?.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.75);
+  };
+
+  backToTop?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
+  });
+
+  updateActiveLink();
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  window.addEventListener("resize", updateActiveLink);
+});
+</script>
+
 
 <!-- SEO STRUCTURED DATA -->
 
