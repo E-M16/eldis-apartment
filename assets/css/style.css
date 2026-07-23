@@ -89,3 +89,38 @@ border-radius:20px;
     background-position: center center;
   }
 }
+
+/* ===== Final mobile hero refinements ===== */
+@media (max-width: 767px) {
+
+  /* The large hero title is reduced slightly for better balance. */
+  #home h1 {
+    font-size: 4.5rem !important;
+    line-height: .95 !important;
+    margin-bottom: .75rem !important;
+  }
+
+  /* Tighten the subtitle spacing. */
+  #home h2 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Bring the description and buttons closer together. */
+  #home .hero-description {
+    margin-bottom: 1.4rem !important;
+  }
+
+  #home .flex.flex-wrap {
+    gap: .85rem !important;
+  }
+
+  /* Remove the duplicate mobile logo bar; the hero title already shows the name. */
+  #siteNav {
+    display: none !important;
+  }
+
+  /* Rebalance the hero after hiding the mobile navigation. */
+  .hero .text-center {
+    transform: translateY(-20px) !important;
+  }
+}
