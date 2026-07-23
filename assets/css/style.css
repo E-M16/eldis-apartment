@@ -59,30 +59,33 @@ border-radius:20px;
 
 }
 
-
-
-/* ===== Mobile navigation improvements ===== */
+/* ===== Compact mobile navigation and hero spacing ===== */
 @media (max-width: 767px) {
 
-  nav .max-w-7xl{
-    padding-top:.35rem !important;
-    padding-bottom:.35rem !important;
+  nav .max-w-7xl {
+    padding-top: .15rem !important;
+    padding-bottom: 0 !important;
   }
 
-  nav .glass{
-    padding:.75rem 1.25rem !important;
-    border-radius:1.1rem !important;
-    background:rgba(15,23,42,.72) !important;
-    backdrop-filter:blur(14px);
+  nav .glass {
+    padding: .55rem 1rem !important;
+    border-radius: 1rem !important;
+    background: rgba(15, 23, 42, .72) !important;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
   }
 
-  nav .text-xl{
-    font-size:1.15rem !important;
-    font-weight:700;
-    line-height:1.2;
+  nav .text-xl {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
   }
 
-  .hero{
-    background-position:center center;
+  .hero .text-center {
+    transform: translateY(-40px);
+  }
+
+  .hero {
+    background-position: center center;
   }
 }
