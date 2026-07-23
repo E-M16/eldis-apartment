@@ -226,38 +226,29 @@
 
 
 <style>
-/* Booking calendar: keeps the existing Tailwind form design while styling Flatpickr. */
+/* Professional booking calendar layered over the existing Tailwind design. */
 .flatpickr-calendar {
   border: 0;
   border-radius: 1rem;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, .18);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, .22);
   font-family: Inter, sans-serif;
   overflow: hidden;
 }
-.flatpickr-months {
-  background: #0f766e;
-  color: #fff;
-  padding: .35rem 0;
-}
+.flatpickr-months { background: #0f766e; color: #fff; padding: .45rem 0; }
 .flatpickr-current-month,
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month input.cur-year,
 .flatpickr-months .flatpickr-prev-month,
-.flatpickr-months .flatpickr-next-month {
-  color: #fff;
-  fill: #fff;
-}
+.flatpickr-months .flatpickr-next-month { color: #fff; fill: #fff; }
 .flatpickr-weekdays { background: #f0fdfa; }
 span.flatpickr-weekday { color: #0f766e; font-weight: 700; }
 .flatpickr-day { border-radius: .65rem; }
 .flatpickr-day:hover,
 .flatpickr-day:focus { border-color: #99f6e4; background: #ccfbf1; }
+.flatpickr-day.inRange { background: #ccfbf1; border-color: #ccfbf1; box-shadow: -5px 0 0 #ccfbf1, 5px 0 0 #ccfbf1; }
 .flatpickr-day.selected,
 .flatpickr-day.startRange,
-.flatpickr-day.endRange {
-  border-color: #0f766e;
-  background: #0f766e;
-}
+.flatpickr-day.endRange { border-color: #0f766e; background: #0f766e; }
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.flatpickr-disabled:hover,
 .flatpickr-day.booked-date {
@@ -268,9 +259,26 @@ span.flatpickr-weekday { color: #0f766e; font-weight: 700; }
   text-decoration: line-through;
 }
 .flatpickr-input[readonly] { cursor: pointer; background-color: #fff; }
-@media (max-width: 420px) {
-  .flatpickr-calendar { width: calc(100vw - 24px); }
-  .flatpickr-days, .dayContainer { min-width: 100%; width: 100%; max-width: 100%; }
+@media (max-width: 767px) {
+  .flatpickr-calendar.open {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    max-width: none !important;
+    height: 100dvh;
+    border-radius: 0;
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+  }
+  .flatpickr-calendar.open .flatpickr-months { padding-top: max(1rem, env(safe-area-inset-top)); }
+  .flatpickr-calendar.open .flatpickr-innerContainer,
+  .flatpickr-calendar.open .flatpickr-rContainer,
+  .flatpickr-calendar.open .flatpickr-days,
+  .flatpickr-calendar.open .dayContainer { width: 100%; max-width: 100%; min-width: 100%; }
+  .flatpickr-calendar.open .flatpickr-innerContainer { flex: 1; align-items: flex-start; justify-content: center; padding-top: 1rem; }
+  .flatpickr-calendar.open .flatpickr-day { max-width: none; height: 44px; line-height: 44px; }
 }
 </style>
 
@@ -1537,31 +1545,23 @@ class="w-full p-4 rounded-xl border">
 
 
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
 <label class="block">
-<span class="block text-sm font-semibold text-slate-700 mb-2">Check-in</span>
+<span class="block text-sm font-semibold text-slate-700 mb-2">Check-in and check-out</span>
+<div class="relative">
+<i class="fa-regular fa-calendar absolute left-4 top-1/2 -translate-y-1/2 text-teal-700 pointer-events-none"></i>
 <input
+id="stayDates"
 type="text"
-name="checkin"
-placeholder="Select check-in date"
+placeholder="Select your stay dates"
 autocomplete="off"
-required
-class="w-full p-4 rounded-xl border bg-white">
-</label>
-
-<label class="block">
-<span class="block text-sm font-semibold text-slate-700 mb-2">Check-out</span>
-<input
-type="text"
-name="checkout"
-placeholder="Select check-out date"
-autocomplete="off"
-required
-class="w-full p-4 rounded-xl border bg-white">
-</label>
-
+readonly
+aria-describedby="calendarLoading stayDuration"
+class="w-full p-4 pl-12 rounded-xl border bg-white">
 </div>
+<input type="hidden" name="checkin">
+<input type="hidden" name="checkout">
+<p id="calendarLoading" class="mt-2 text-sm font-semibold text-white/90">Loading live availability…</p>
+</label>
 
 <div
 id="stayDuration"
