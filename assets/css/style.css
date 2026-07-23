@@ -58,3 +58,31 @@ background:#0f766e;
 border-radius:20px;
 
 }
+
+
+
+/* ===== Mobile navigation improvements ===== */
+@media (max-width: 767px) {
+
+  nav .max-w-7xl{
+    padding-top:.35rem !important;
+    padding-bottom:.35rem !important;
+  }
+
+  nav .glass{
+    padding:.75rem 1.25rem !important;
+    border-radius:1.1rem !important;
+    background:rgba(15,23,42,.72) !important;
+    backdrop-filter:blur(14px);
+  }
+
+  nav .text-xl{
+    font-size:1.15rem !important;
+    font-weight:700;
+    line-height:1.2;
+  }
+
+  .hero{
+    background-position:center center;
+  }
+}
