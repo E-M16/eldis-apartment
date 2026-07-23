@@ -20,7 +20,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if (!calendarLoading) return;
     calendarLoading.textContent = message;
     calendarLoading.classList.toggle("hidden", !loading);
-    rangeInput?.toggleAttribute("disabled", loading);
   };
 
   function showDateMessage(message, type = "error") {
@@ -132,6 +131,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializeCalendar() {
+    if (picker || !rangeInput) return;
+
     if (typeof window.flatpickr !== "function") {
       setLoading(false);
       showDateMessage("The booking calendar could not load. Please refresh the page.");
@@ -212,31 +213,47 @@ window.addEventListener("DOMContentLoaded", () => {
 
   async function loadAvailability() {
     setLoading(true);
+
     if (!availabilityWorkerUrl) {
-      initializeCalendar();
+      setLoading(false);
+      showDateMessage("Calendar ready. Dates will be confirmed when your request is sent.", "info");
       return;
     }
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 12000);
 
     try {
       const response = await fetch(availabilityWorkerUrl, {
         method: "GET",
         headers: { Accept: "application/json" },
-        cache: "no-cache"
+        cache: "no-cache",
+        signal: controller.signal
       });
+
       const data = await response.json();
       if (!response.ok || !data.success || !Array.isArray(data.unavailableDates)) {
         throw new Error(data.message || "Invalid availability response.");
       }
 
-      unavailableDates = new Set(data.unavailableDates.filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date)));
+      unavailableDates = new Set(
+        data.unavailableDates.filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date))
+      );
       availabilityLoaded = true;
-      if (!picker) initializeCalendar();
-      else refreshCalendarAvailability();
+      refreshCalendarAvailability();
+      setLoading(false);
+
+      if (!checkinInput.value && !checkoutInput.value) clearDateMessage();
     } catch (error) {
       console.error("Availability loading failed:", error);
       availabilityLoaded = false;
-      initializeCalendar();
-      showDateMessage("Live availability could not be refreshed. Your dates will still be checked before the request is sent.", "info");
+      setLoading(false);
+      showDateMessage(
+        "Live availability could not be refreshed. The calendar is still available and your dates will be checked before the request is sent.",
+        "info"
+      );
+    } finally {
+      window.clearTimeout(timeoutId);
     }
   }
 
@@ -265,6 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }, true);
 
+  initializeCalendar();
   loadAvailability();
 
   window.EldiApp.booking = {
